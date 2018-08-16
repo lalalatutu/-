@@ -1,0 +1,24 @@
+官网：http://www.django-rest-framework.org/
+django-rest-framework,是一套基于Django 的 REST 框架，是一个强大灵活的构建 Web API 的工具包。也就是说，使用django-rest-framework也要按照Django .
+
+RESTful API 设计指南:http://www.ruanyifeng.com/blog/2014/05/restful_api.html
+
+REST简介：https://www.cnblogs.com/loveis715/p/4669091.html
+
+
+# 序列化器 把python对象序列化成网络中传输的字符串（二进制）
+# serializers.Serializer最基本的序列化器，自定义序列化的时候用到，优点：灵活，
+# class GoodsListSerializers(serializers.Serializer):
+# # 序列化商品的名称
+    # name = serializers.CharField()
+    # click_num = serializers.IntegerField()
+    # goods_front_image = serializers.ImageField()
+# 大部分时候都是使用serializers.ModelSerializer，功能强大，更加方便
+
+# 命名，model名加Serializer
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        # 要序列化的model
+        model = GoodsCategory
+        # 序列化的字段
+        fields = '__all__'
